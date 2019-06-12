@@ -1,4 +1,4 @@
-package pl.piomin.services.auth;
+package com.platformtechlab.auth;
 
 import javax.sql.DataSource;
 
