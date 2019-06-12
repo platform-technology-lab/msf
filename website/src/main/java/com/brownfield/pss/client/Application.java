@@ -35,8 +35,7 @@ public class Application implements CommandLineRunner {
 		System.out.print("bootstrapping server....");
 		//Search for a flight
 		SearchQuery searchQuery = new SearchQuery("NYC","SFO","22-JAN-18");
- 		Flight[] flights = restTemplate.postForObject("http://search-service/search/get", searchQuery, Flight[].class); 
- 	//	Flight[] flights = restTemplate.postForObject("http://search-apigateway/api/search/get", searchQuery, Flight[].class); 
+ 		Flight[] flights = restTemplate.postForObject("http://apigateway/api/search/search/get", searchQuery, Flight[].class); 
  		
 		Arrays.asList(flights).forEach(flight -> logger.info(" flight >"+ flight));
   		
@@ -55,8 +54,7 @@ public class Application implements CommandLineRunner {
 		booking.setPassengers(passengers);
 		long bookingId =0;
 		try { 
-			bookingId = restTemplate.postForObject("http://book-service/booking/create", booking, long.class); 
-			// bookingId = restTemplate.postForObject("http://book-apigateway/api/booking/create", booking, long.class); 
+			bookingId = restTemplate.postForObject("http://apigateway/book/booking/create", booking, long.class); 
 			logger.info("Booking created "+ bookingId);
 		}catch (Exception e){
 			logger.error("BOOKING SERVICE NOT AVAILABLE...!!!");
@@ -66,8 +64,7 @@ public class Application implements CommandLineRunner {
 		if(bookingId == 0) return;
 		try {
 			CheckInRecord checkIn = new CheckInRecord("Franc", "Gavin", "28C", null, "BF101","22-JAN-18", bookingId);
-		//	long checkinId = restTemplate.postForObject("http://checkin-apigateway/api/checkin/create", checkIn, long.class); 
-                        long checkinId = restTemplate.postForObject("http://checkin-service/checkin/create", checkIn, long.class); 
+                        long checkinId = restTemplate.postForObject("http://apigateway/checkin/checkin/create", checkIn, long.class); 
 			logger.info("Checked IN "+ checkinId);
 		}catch (Exception e){
 			logger.error("CHECK IN SERVICE NOT AVAILABLE...!!!"); 

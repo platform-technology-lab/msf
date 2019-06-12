@@ -1,0 +1,26 @@
+server:  
+  port: ${PORT:9999}
+
+spring:  
+  application:
+    name: auth-server
+  session:
+    store-type: none
+  datasource:
+    url: jdbc:mysql://localhost:3306/com?useSSL=false
+    username: default
+    password: default
+
+logging:
+  level:
+    org.springframework.security: TRACE
+
+security:
+  user:
+    name: user
+    password: test
+
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
