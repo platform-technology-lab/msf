@@ -1,4 +1,4 @@
-package com.brownfield.pss.book.apigateway;
+package com.platformtechlab.apigateway;
 
 import javax.sql.DataSource;
 
