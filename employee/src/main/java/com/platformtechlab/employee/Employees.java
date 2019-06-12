@@ -1,4 +1,4 @@
-package platformtechlab.employee;
+package com.platformtechlab.employee;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package platformtechlab.employee;
+package com.platformtechlab.employee;
 
 import java.net.URI;
 
