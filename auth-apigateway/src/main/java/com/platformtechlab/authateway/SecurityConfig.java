@@ -1,4 +1,4 @@
-package com.platformtechlab.auth;
+package com.platformtechlab.authateway;
 
 import javax.sql.DataSource;
 

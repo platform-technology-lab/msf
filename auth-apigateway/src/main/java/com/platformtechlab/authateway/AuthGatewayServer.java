@@ -1,4 +1,4 @@
-package com.platformtechlab.auth;
+package com.platformtechlab.authateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
