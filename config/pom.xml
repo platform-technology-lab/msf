@@ -3,11 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>config-server</artifactId>
+	<groupId>com.platformtechlab.msf</groupId>
+	<artifactId>config</artifactId>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>chapter7.configserver</name>
-	<description>Demo project for Spring Boot</description>
+	<name>configserver</name>
 
 <parent>
     <groupId>org.springframework.boot</groupId>
@@ -59,7 +60,4 @@
     
 		
 </repositories>
-
-	<groupId>com.brownfield.pss</groupId>
-	<version>1.0</version>
 </project>

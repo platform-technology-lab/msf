@@ -3,12 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>eureka-server</artifactId>
+	<artifactId>com.platformtechlab.msf</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>chapter7.eurekaserver</name>
-	<description>Demo project for Spring Boot</description>
+	<name>eurekaserver</name>
 
 <parent>
     <groupId>org.springframework.boot</groupId>
