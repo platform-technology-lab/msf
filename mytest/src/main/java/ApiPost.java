@@ -17,13 +17,13 @@ public class ApiPost {
     RestTemplate restTemplate = new RestTemplate();
     
     public static void main(String[] args) throws Exception {
-		PostExample PE = new PostExample();
+    	ApiPost PE = new ApiPost();
 		String token = null;
 		try {
-		PE.requestLogin(token);
-
+//		PE.requestLogin(token);
+		token = PE.getAccessTocken();
 		} catch (Exception e) {
-			token = PE.getAccessTocken();
+//			token = PE.getAccessTocken();
 			PE.requestLogin(token);
 		}
     }
