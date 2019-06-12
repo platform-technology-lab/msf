@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class PostExample2 {
+public class ApiPost {
     static final String URL_CREATE_EMPLOYEE = "http://localhost:8066/oauth/token";
     RestTemplate restTemplate = new RestTemplate();
     
