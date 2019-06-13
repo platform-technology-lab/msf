@@ -20,10 +20,10 @@ public class ApiPost {
     	ApiPost PE = new ApiPost();
 		String token = null;
 		try {
-//		PE.requestLogin(token);
-		token = PE.getAccessTocken();
+		PE.requestLogin(token);
+//		token = PE.getAccessTocken();
 		} catch (Exception e) {
-//			token = PE.getAccessTocken();
+			token = PE.getAccessTocken();
 			PE.requestLogin(token);
 		}
     }
@@ -43,7 +43,7 @@ public class ApiPost {
  		access_token_url += "?grant_type=password";
  		access_token_url += "&client_id=foo2";
  		access_token_url += "&scope=read";
- 		access_token_url += "&username=user";
+ 		access_token_url += "&username=user2";
  		access_token_url += "&password=test";
 
  		ResponseEntity<String> response = restTemplate.exchange(access_token_url, HttpMethod.POST, request, String.class);
@@ -64,6 +64,9 @@ public class ApiPost {
 		// Use the access token for authentication
 		HttpHeaders headers1 = new HttpHeaders();
 		headers1.add("Authorization", "Bearer " + token);
+//       headers1.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+//		headers1.setContentType(MediaType.APPLICATION_JSON);
+        
 		HttpEntity<String> entity = new HttpEntity<String>(headers1);
 
 		ResponseEntity<String> employees = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);

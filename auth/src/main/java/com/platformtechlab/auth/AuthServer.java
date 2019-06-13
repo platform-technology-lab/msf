@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @EnableAuthorizationServer
 @EnableDiscoveryClient
 @EnableResourceServer
-//@EnableJdbcHttpSession
+@EnableJdbcHttpSession
 @RestController
 public class AuthServer {
 

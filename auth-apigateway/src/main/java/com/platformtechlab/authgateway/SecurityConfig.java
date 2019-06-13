@@ -21,13 +21,11 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
         http.headers().frameOptions().disable();
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/employee").access("#oauth2.hasScope('read')");
+                .antMatchers("/employee/**").access("#oauth2.hasScope('read')");
     }
 
     @Bean
     public TokenStore JdbcTokenStore(@Qualifier("dataSource") DataSource dataSource) {
         return new JdbcTokenStore(dataSource);
     }
-
-
 }

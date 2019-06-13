@@ -10,6 +10,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 import org.springframework.web.bind.annotation.RestController;
 
 @EnableZuulProxy
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableAuthorizationServer
 @EnableDiscoveryClient
 @EnableResourceServer
+@EnableJdbcHttpSession
 @RestController
 public class AuthGatewayServer {
 
@@ -24,9 +26,9 @@ public class AuthGatewayServer {
 		SpringApplication.run(AuthGatewayServer.class, args);
 	}
 
-	@Bean
-	public DataSource dataSource() {
-		return DataSourceBuilder.create().url("jdbc:mysql://localhost:3306/com?useSSL=false")
-				.username("default").password("default").driverClassName("com.mysql.jdbc.Driver").build();
-	}
+//	@Bean
+//	public DataSource dataSource() {
+//		return DataSourceBuilder.create().url("jdbc:mysql://localhost:3306/com?useSSL=false")
+//				.username("default").password("default").driverClassName("com.mysql.jdbc.Driver").build();
+//	}
 }
