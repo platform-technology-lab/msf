@@ -13,14 +13,14 @@
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.2.RELEASE</version>
+    <version>2.1.1.RELEASE</version>
 </parent>
 <dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>
-            <version>Dalston.SR1</version>
+            <version>Greenwich.SR1</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -37,15 +37,12 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
- 
 	
 	<build>
 		<plugins>
@@ -55,9 +52,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	
 	<repositories>
-    
-		
 </repositories>
 </project>

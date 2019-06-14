@@ -21,9 +21,10 @@ public class ApiPost {
 		String token = null;
 		try {
 		PE.requestLogin(token);
-//		token = PE.getAccessTocken();
+		token = PE.getAccessTocken();
 		} catch (Exception e) {
-			token = PE.getAccessTocken();
+			e.getStackTrace();
+//			token = PE.getAccessTocken();
 			PE.requestLogin(token);
 		}
     }

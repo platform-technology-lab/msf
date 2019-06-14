@@ -2,6 +2,8 @@ package com.platformtechlab.employee;
 
 import java.net.URI;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +17,16 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RequestMapping(path = "/employees")
 public class EmployeeController
 {
+	
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    
     @Autowired
     private EmployeeDAO employeeDao;
      
     @GetMapping(path="/", produces = "application/json")
     public Employees getEmployees()
     {
+    	 logger.info("received request");
         return employeeDao.getAllEmployees();
     }
      
