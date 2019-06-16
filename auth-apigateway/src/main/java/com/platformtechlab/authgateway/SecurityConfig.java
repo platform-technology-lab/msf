@@ -8,6 +8,11 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
@@ -23,6 +28,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+     
+        auth.inMemoryAuthentication()
+                .withUser("user3").password("test").roles("USER")
+                .and()
+                .withUser("user4").password("test").roles("ADMIN");
+
+    }
+
+    @SuppressWarnings("deprecation")
+	@Bean
+    public PasswordEncoder noOpPasswordEncoder(){
+        return NoOpPasswordEncoder.getInstance();
+    }
 //    @Autowired
 //    public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.userDetailsService(new DefaultUserDetailsService(userRepository));
