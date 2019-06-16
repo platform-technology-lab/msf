@@ -1,31 +1,30 @@
 package com.platformtechlab.authgateway;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
-import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-@EnableAuthorizationServer // 자원서버 설정
 @Configuration
-public class SecurityConfig extends ResourceServerConfigurerAdapter {
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+//    @Autowired
+//    private AppUserRepository userRepository;
 
     @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.headers().frameOptions().disable();
-        http.csrf().disable();
-        http.authorizeRequests()
-                .antMatchers("/employee/**").access("#oauth2.hasScope('read')");
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 
-    @Bean
-    public TokenStore JdbcTokenStore(@Qualifier("dataSource") DataSource dataSource) {
-        return new JdbcTokenStore(dataSource);
-    }
+//    @Autowired
+//    public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(new DefaultUserDetailsService(userRepository));
+//    }
 }

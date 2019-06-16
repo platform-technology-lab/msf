@@ -20,7 +20,7 @@
     </Appenders>
     <Loggers>
         <Root level="INFO">
-            <AppenderRef ref="kafkaAppender"/>
+            <!-- AppenderRef ref="kafkaAppender"/-->
             <AppenderRef ref="stdout"/>
             <AppenderRef ref="stderr"/>
         </Root>

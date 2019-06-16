@@ -21,10 +21,9 @@ public class ApiPost {
 		String token = null;
 		try {
 		PE.requestLogin(token);
-		token = PE.getAccessTocken();
 		} catch (Exception e) {
 			e.getStackTrace();
-//			token = PE.getAccessTocken();
+			token = PE.getAccessTocken();
 			PE.requestLogin(token);
 		}
     }
@@ -32,9 +31,10 @@ public class ApiPost {
     public String getAccessTocken() throws Exception {
         HttpHeaders headers = new HttpHeaders();
         String auth = "foo2:bar2";
-        byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("UTF-8")));
+        byte[] encodedAuth = Base64.encodeBase64(auth.getBytes());
 
         String authHeader = "Basic " + new String(encodedAuth);
+ 		System.out.println("Header: " + authHeader);
         headers.set("Authorization", authHeader);
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 
@@ -43,8 +43,8 @@ public class ApiPost {
  		String access_token_url = "http://localhost:8066/oauth/token";
  		access_token_url += "?grant_type=password";
  		access_token_url += "&client_id=foo2";
- 		access_token_url += "&scope=read";
- 		access_token_url += "&username=user2";
+// 		access_token_url += "&scope=read";
+ 		access_token_url += "&username=user3";
  		access_token_url += "&password=test";
 
  		ResponseEntity<String> response = restTemplate.exchange(access_token_url, HttpMethod.POST, request, String.class);
@@ -65,7 +65,7 @@ public class ApiPost {
 		// Use the access token for authentication
 		HttpHeaders headers1 = new HttpHeaders();
 		headers1.add("Authorization", "Bearer " + token);
-//       headers1.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+       headers1.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 //		headers1.setContentType(MediaType.APPLICATION_JSON);
         
 		HttpEntity<String> entity = new HttpEntity<String>(headers1);
