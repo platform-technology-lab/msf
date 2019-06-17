@@ -1,31 +1,19 @@
-version: '2'
-services:
-  config:
-    image: imich/config-server:v1
-    ports:
-      - "8888:8888"
-    networks:
-      main:
-        aliases:
-          - config
+config:
+  image: imich/config-server:v1
+  ports:
+    - 8888:8888
 
-  eureka:
-    image: imich/eureka:v1
-    ports:
-      - "8761:8761"
-    networks:
-      main:
-        aliases:
-          - eureka
+eureka:
+  image: imich/eureka:v1
+  ports:
+    - 8761:8761
+  links:
+    - config
 
-  employee:
-    image: imich/employee:v1
-    ports:
-      - "8011:8011"
-    networks:
-      main:
-        aliases:
-          - employee
-
-networks:
-  main:
+employee:
+  image: imich/employee:v1
+  ports:
+    - 8011:8011
+  links:
+    - config
+    - eureka
