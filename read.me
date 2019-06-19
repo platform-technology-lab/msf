@@ -1,0 +1,17 @@
+
+
+[Start] 
+sudo docker-compose up -d --build
+
+If a container exists after prior building, the docker compose doesn't rebuild it. So, [--build] option is necessary.
+
+[Stop] 
+sudo docker-compose down
+
+[Log]
+If you want to see logs,
+ 
+sudo docker-compose logs [-f] [service name]
+
+[-f] option shows logs continuously without terminating.
+
