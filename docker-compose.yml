@@ -1,19 +1,48 @@
-config:
-  image: imich/config-server:v1
-  ports:
-    - 8888:8888
+version: '2'
 
-eureka:
-  image: imich/eureka:v1
-  ports:
-    - 8761:8761
-  links:
-    - config
+services:
+  config:
+    build:
+      context: ./config
+      dockerfile: Dockerfile
+    ports:
+      - 8888:8888
 
-employee:
-  image: imich/employee:v1
-  ports:
-    - 8011:8011
-  links:
-    - config
-    - eureka
+  eureka:
+    build:
+      context: ./eureka
+      dockerfile: Dockerfile
+    ports:
+      - 8761:8761
+    links:
+      - config
+
+  employee:
+    build:
+      context: ./employee
+      dockerfile: Dockerfile
+    ports:
+      - 8011:8011
+    links:
+      - config
+      - eureka
+
+  apigateway:
+    build:
+      context: ./apigateway
+      dockerfile: Dockerfile
+    ports:
+      - 8065:8065
+    links:
+      - config
+      - eureka
+
+  auth-apigateway:
+    build:
+      context: ./auth-apigateway
+      dockerfile: Dockerfile
+    ports:
+      - 8066:8066
+    links:
+      - config
+      - eureka

@@ -13,9 +13,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableZuulProxy
 @EnableDiscoveryClient
-public class BookingApiGateway {
+public class ApiGateway {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BookingApiGateway.class, args);
+		SpringApplication.run(ApiGateway.class, args);
 	}
 }
