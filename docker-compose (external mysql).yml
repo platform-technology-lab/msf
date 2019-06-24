@@ -41,25 +41,10 @@ services:
     build:
       context: ./auth-apigateway
       dockerfile: Dockerfile
-    environment:
-      user: default
-      password: default
-      port: 33060
     ports:
       - 8066:8066
+    extra_hosts:
+      - "mysqlhost:192.168.0.15"
     links:
       - config
       - eureka
-      - mysqlhost
-
-  mysqlhost:
-    image: mysql:5
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: com
-      MYSQL_USER: default
-      MYSQL_PASSWORD: default
-    ports:
-     - 33060:3306
-    volumes:
-      - "./setting/db:/docker-entrypoint-initdb.d"
