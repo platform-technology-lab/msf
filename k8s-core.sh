@@ -7,7 +7,7 @@ kubectl delete -f ./setting/kubernetes/config.yaml
 kubectl apply -f ./setting/kubernetes/config.yaml
 
 echo "Waiting for starting servies...."
-sleep 10s
+sleep 5s
 
 docker build -t eureka ./eureka
 kubectl delete -f ./setting/kubernetes/eureka.yaml

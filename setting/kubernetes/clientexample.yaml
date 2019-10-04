@@ -32,5 +32,5 @@ spec:
   - port: 8015
     protocol: TCP
   selector:
-    app: employee
+    app: clientexample
   type: LoadBalancer

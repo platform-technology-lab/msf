@@ -33,4 +33,4 @@ spec:
     protocol: TCP
   selector:
     app: basicexample
-#  type: LoadBalancer
+  type: LoadBalancer
