@@ -27,6 +27,27 @@ services:
       - config
       - eureka
 
+  basic:
+    build:
+      context: ./basicexample
+      dockerfile: Dockerfile
+    ports:
+      - 8012:8012
+    links:
+      - config
+      - eureka
+
+  basicclient:
+    build:
+      context: ./clientexample
+      dockerfile: Dockerfile
+    ports:
+      - 8015:8015
+    links:
+      - config
+      - eureka
+
+
   apigateway:
     build:
       context: ./apigateway
