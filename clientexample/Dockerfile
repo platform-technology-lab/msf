@@ -1,5 +1,5 @@
 FROM openjdk:8-jre-alpine
-ENV APP_FILE clientExample-1.0.jar
+ENV APP_FILE clientexample-1.0.jar
 ENV APP_HOME /usr/apps
 EXPOSE 8015
 COPY target/$APP_FILE $APP_HOME/

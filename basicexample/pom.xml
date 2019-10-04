@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.platformtechlab.msf</groupId>
-	<artifactId>basicExample</artifactId>
+	<artifactId>basicexample</artifactId>
 	<version>1.0</version>
-	<name>basicExample</name>
+	<name>basicexample</name>
 	
 <parent>
     <groupId>org.springframework.boot</groupId>

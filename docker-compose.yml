@@ -46,6 +46,7 @@ services:
     links:
       - config
       - eureka
+      - basic
 
 
   apigateway:

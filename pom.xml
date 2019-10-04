@@ -15,5 +15,7 @@
     <module>employee</module>
     <module>apigateway</module>
     <module>auth-apigateway</module>
+    <module>basicexample</module>
+    <module>clientexample</module>
   </modules>
 </project>
