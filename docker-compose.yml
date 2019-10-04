@@ -27,7 +27,7 @@ services:
       - config
       - eureka
 
-  basic:
+  basicexample:
     build:
       context: ./basicexample
       dockerfile: Dockerfile
@@ -46,7 +46,7 @@ services:
     links:
       - config
       - eureka
-      - basic
+      - basicexample
 
 
   apigateway:

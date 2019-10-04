@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basicexample
+  labels:
+    app: basicexample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: basicexample
+  template:
+    metadata:
+      labels:
+        app: basicexample
+    spec:
+      containers:
+      - name: basicexample
+        image: msf-basicexample
+        ports:
+        - containerPort: 8012
+        imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: basicexample
+  labels:
+    app: basicexample
+spec:
+  ports:
+  - port: 8012
+    protocol: TCP
+  selector:
+    app: basicexample
+#  type: LoadBalancer

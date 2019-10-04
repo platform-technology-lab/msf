@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clientexample
+  labels:
+    app: clientexample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clientexample
+  template:
+    metadata:
+      labels:
+        app: clientexample
+    spec:
+      containers:
+      - name: clientexample
+        image: msf-clientexample
+        ports:
+        - containerPort: 8015
+        imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clientexample
+  labels:
+    app: clientexample
+spec:
+  ports:
+  - port: 8015
+    protocol: TCP
+  selector:
+    app: employee
+  type: LoadBalancer
