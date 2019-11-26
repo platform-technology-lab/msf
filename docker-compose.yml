@@ -25,7 +25,6 @@ services:
       - 8011:8011
     links:
       - config
-      - eureka
 
   basicexample:
     build:
@@ -35,7 +34,6 @@ services:
       - 8012:8012
     links:
       - config
-      - eureka
 
   basicclient:
     build:
@@ -45,7 +43,6 @@ services:
       - 8015:8015
     links:
       - config
-      - eureka
       - basicexample
 
 
@@ -57,7 +54,6 @@ services:
       - 8065:8065
     links:
       - config
-      - eureka
 
   auth-apigateway:
     build:
@@ -71,7 +67,6 @@ services:
       - 8066:8066
     links:
       - config
-      - eureka
       - mysqlhost
 
   mysqlhost:

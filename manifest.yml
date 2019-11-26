@@ -1,0 +1,26 @@
+---
+applications:
+- name: config
+  memory: 1G
+  random-route: true
+  buildpack: java_buildpack
+  health-check-type: none
+  path: config/target/config-1.0.jar
+- name: eureka
+  memory: 1G
+  random-route: true
+  buildpack: java_buildpack
+  health-check-type: none
+  path: eureka/target/eureka-1.0.jar
+- name: basicexample
+  memory: 1G
+  random-route: true
+  buildpack: java_buildpack
+  health-check-type: none
+  path: basicexample/target/basicexample-1.0.jar
+- name: clientexample
+  memory: 1G
+  random-route: true
+  buildpack: java_buildpack
+  health-check-type: none
+  path: clientexample/target/clientexample-1.0.jar
