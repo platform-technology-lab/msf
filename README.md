@@ -1,49 +1,52 @@
 # Getting Started
 
-## 환경설정
+## Installation of required sw
 
-### open jdk 설치
+### open jdk
 ```sh
 * sudo apt-get install openjdk-8-jdk
 ```
-### git 설치
+### git
 ```sh
 * sudo apt-get install git
 ```
-### maven 설치
+### maven
 ```sh
 * sudo apt-get install maven
 ```
-### docker 설치
+### docker
 ```sh
 * sudo apt-get install docker.io
 ```
-### curl 설치
+### curl
 ```sh
 * sudo apt-get install curl
 ```
-### docker-compose 설치 (Ubuntu 18.0.4)
+### docker-compose (Ubuntu 18.0.4)
 ```sh
 1. sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 2. sudo chmod +x /usr/local/bin/docker-compose
-3. (설치확인) docker-compose --version
+3. (checkup) docker-compose --version
 ```
-## 실행
+## Execution
 
-### 로컬실행 (처음 실행시 라이브러리 초기 다운로드가 필요하여 많은 시간 소요)
+### Local start (It takes a lot of time because the library needs initial download on first run)
 ```sh
 ./dev-run.sh
 ```
 
-### 로컬정지
+### Local stop
 ```sh
 ./dev-stop.sh
 ```
 
-#### 로그보기
-sudo docker logs 
+#### Read logs
+```sh
+sudo docker logs [docker service name]
+* sudo docker logs employee
+```
 
-## 로컬테스트
+## Local Test URL
 
 config: http://localhost:8888/application/master
 
@@ -59,9 +62,9 @@ basicexample: http://localhost:8012/employees
 
 clientexample: http://localhost:8015/emplist
 
-(실제로 서비스가 실행되어 페이지가 뜰때까지 시간이 소요될 수 있음)
+(It takes a lot of time to start up the services)
 
-## 메모
+## Memo
 
 [Start] 
 sudo docker-compose up -d --build
@@ -83,10 +86,10 @@ sudo docker-compose logs [-f] [service name]
 * Refresh method
 curl localhost:8888/actuator/bus-refresh
 
-* API-DOC 확인
+* API-DOC
 http://localhost:8011/swagger-ui.html
 
-* minikube 환경설정
+* minikube configuration
 eval $(minikube docker-env)
 
 
