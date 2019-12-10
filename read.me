@@ -1,8 +1,6 @@
-Getting Started
-===============
+# Getting Started
 
-환경설정
--------
+## 환경설정
 
 ### open jdk 설치
 sudo apt-get install openjdk-8-jdk
@@ -24,8 +22,7 @@ sudo apt-get install curl
 2. sudo chmod +x /usr/local/bin/docker-compose
 3. (설치확인) docker-compose --version
 
-실행
-----
+## 실행
 
 ### 로컬실행 (처음 실행시 라이브러리 초기 다운로드가 필요하여 많은 시간 소요)
 ./dev-run.sh
@@ -36,8 +33,7 @@ sudo apt-get install curl
 #### 로그보기
 sudo docker logs 
 
-로컬테스트
----------
+## 로컬테스트
 
 config: http://localhost:8888/application/master
 EUREKA: http://localhost:8761
@@ -49,8 +45,7 @@ clientexample: http://localhost:8015/emplist
 
 (실제로 서비스가 실행되어 페이지가 뜰때까지 시간이 소요될 수 있음)
 
-메모
-----
+## 메모
 
 [Start] 
 sudo docker-compose up -d --build
