@@ -3,32 +3,42 @@
 ## 환경설정
 
 ### open jdk 설치
-sudo apt-get install openjdk-8-jdk
-
+```sh
+* sudo apt-get install openjdk-8-jdk
+```
 ### git 설치
-sudo apt-get install git
-
+```sh
+* sudo apt-get install git
+```
 ### maven 설치
-sudo apt-get install maven
-
+```sh
+* sudo apt-get install maven
+```
 ### docker 설치
-sudo apt-get install docker.io
-
+```sh
+* sudo apt-get install docker.io
+```
 ### curl 설치
-sudo apt-get install curl
-
+```sh
+* sudo apt-get install curl
+```
 ### docker-compose 설치 (Ubuntu 18.0.4)
+```sh
 1. sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 2. sudo chmod +x /usr/local/bin/docker-compose
 3. (설치확인) docker-compose --version
-
+```
 ## 실행
 
 ### 로컬실행 (처음 실행시 라이브러리 초기 다운로드가 필요하여 많은 시간 소요)
+```sh
 ./dev-run.sh
+```
 
 ### 로컬정지
+```sh
 ./dev-stop.sh
+```
 
 #### 로그보기
 sudo docker logs 
