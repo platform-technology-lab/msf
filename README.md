@@ -36,11 +36,17 @@ sudo docker logs
 ## 로컬테스트
 
 config: http://localhost:8888/application/master
+
 EUREKA: http://localhost:8761
+
 employee: http://localhost:8011/employees/
+
 apigateway: http://localhost:8065/employee/employees/
+
 auth-apigateway: http://localhost:8066/employee/employees/
+
 basicexample: http://localhost:8012/employees
+
 clientexample: http://localhost:8015/emplist
 
 (실제로 서비스가 실행되어 페이지가 뜰때까지 시간이 소요될 수 있음)
