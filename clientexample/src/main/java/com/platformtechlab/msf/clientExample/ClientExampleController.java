@@ -3,6 +3,7 @@ package com.platformtechlab.msf.clientExample;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,14 +13,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
+
 @Controller
 public class ClientExampleController {
 	
   	RestTemplate employeeClient = new RestTemplate();
 	UIData uiData = new UIData();
 
+	@Autowired
+	private EurekaClient discoveryClient;
+	
+	public String serviceUrl() {
+	    InstanceInfo instance = discoveryClient.getNextServerFromEureka("basicexample", false);
+	    return instance.getHomePageUrl();
+	}
+	
     @RequestMapping(value="/emplist", method=RequestMethod.GET)
     public String listEmployee(Model model) {
+    	String api_url = serviceUrl()+"/employees";
     	Employee[] employees = employeeClient.getForObject("http://basicexample:8012/employees",Employee[].class);
     	uiData.setEmployees(Arrays.asList(employees));
        model.addAttribute("uidata",uiData );
